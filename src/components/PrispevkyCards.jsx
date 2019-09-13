@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 
 const PrispevkyCards = () => {
   const [data, setData] = useState({ prispevky: [] });
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     db.collection("prispevky")
@@ -16,10 +15,6 @@ const PrispevkyCards = () => {
         setData({ prispevky: data });
       });
   }, []);
-
-  const counter = () => {
-    setCount(count + 1);
-  };
 
   return (
     <div>
@@ -37,10 +32,6 @@ const PrispevkyCards = () => {
           );
         })}
       </div>
-
-      <div>{count}</div>
-      <button onClick={counter}>Increment</button>
-      <p>Vitaj na stranke</p>
     </div>
   );
 };
