@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
-import PrispevkyCards from "./components/prispevkycards/PrispevkyCards";
-import NavigationBar from "./components/NavigationBar";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   return (
     <div>
-      <NavigationBar />
-      <PrispevkyCards />
+      <HomePage />
     </div>
   );
 }
