@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import db from "../firebase/firebase";
+import db from "../../firebase/firebase";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import "./PrispevkyCards-styles.css";
 
 const PrispevkyCards = () => {
   const [data, setData] = useState({ prispevky: [] });
@@ -21,9 +22,10 @@ const PrispevkyCards = () => {
       <div>
         {data.prispevky.map(item => {
           return (
-            <Card>
+            <Card className="cardlist">
               <Card.Header as="h5">{item.state}</Card.Header>
               <Card.Body>
+                <Card.Img src={item.picture}></Card.Img>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>{item.description}</Card.Text>
                 <Button variant="primary">Go somewhere</Button>

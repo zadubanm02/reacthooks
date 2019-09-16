@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import PrispevkyCards from "./components/PrispevkyCards";
+import PrispevkyCards from "./components/prispevkycards/PrispevkyCards";
 import NavigationBar from "./components/NavigationBar";
 
 function App() {
