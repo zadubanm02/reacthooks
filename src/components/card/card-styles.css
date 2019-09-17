@@ -1,12 +1,12 @@
 .button {
-  background-image: linear-gradient(to bottom right, #f237ef, #fc5252);
+  background-image: linear-gradient(to bottom right, #e5f230, #54db63);
   color: black;
   border: none;
 }
 
 .cardstyle {
   width: 250px;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 5px rgb(189, 187, 187);
   margin: 50px;
-  border-radius: 50px 15px;
+  border-radius: 15px;
 }
