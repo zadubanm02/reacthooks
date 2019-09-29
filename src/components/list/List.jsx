@@ -20,7 +20,9 @@ const List = () => {
     <div>
       <ListGroup>
         {data.blog.map(item => {
-          return <ListItem header={item.header} name={item.name} />;
+          return (
+            <ListItem key={item.name} header={item.header} name={item.name} />
+          );
         })}
       </ListGroup>
     </div>

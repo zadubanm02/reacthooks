@@ -21,6 +21,7 @@ const PrispevkyCards = () => {
       {data.prispevky.map(item => {
         return (
           <CardPrispevok
+            key={item.name}
             state={item.state}
             name={item.name}
             description={item.description}
