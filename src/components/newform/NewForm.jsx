@@ -1,5 +1,5 @@
 import React from "react";
-import db from "../../firebase/firebase";
+import fr from "../../firebase/firebase";
 
 class NewForm extends React.Component {
   constructor(props) {
@@ -19,8 +19,8 @@ class NewForm extends React.Component {
 
   handleDataPost = e => {
     e.preventDefault();
+    const db = fr.firestore();
 
-    db.settings({ timestampsInSnapshots: true });
     db.collection("prispevky").add({
       name: this.state.name,
       state: this.state.state,

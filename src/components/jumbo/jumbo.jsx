@@ -10,7 +10,7 @@ const Jumbo = () => {
       <Jumbotron className="jumbo">
         <Row>
           <Col>
-            <h1>Hello, world!</h1>
+            <h1>Hello, Slavka!</h1>
             <p>This is a simple hero unit</p>
           </Col>
           <Col>
