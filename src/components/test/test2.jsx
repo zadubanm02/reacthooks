@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
+import EXIF from "exif-js";
 
 export default class TestComp2 extends React.Component {
   state = {
@@ -30,6 +31,8 @@ export default class TestComp2 extends React.Component {
       dbURL: this.state.pictureURL
     });
   };
+
+  getMetaData = pictureURL => {};
 
   handleUploadStart = () => {
     this.setState({ isUploading: true });
@@ -61,7 +64,7 @@ export default class TestComp2 extends React.Component {
           <button type="submit">Submit data</button>
         </form>
         <form>
-          {this.state.pictureURL && <img src={this.state.pictureURL} alt="" />}
+          {this.state.dbURL && <img src={this.state.dbURL} alt="" />}
 
           <FileUploader
             accept="image/*"
@@ -71,6 +74,7 @@ export default class TestComp2 extends React.Component {
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
+            getMetaData={this.getMetaData}
           />
         </form>
       </div>

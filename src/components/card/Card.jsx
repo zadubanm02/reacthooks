@@ -1,6 +1,8 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./card-styles.css";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export const CardPrispevok = props => (
   <div>
@@ -9,7 +11,10 @@ export const CardPrispevok = props => (
         <Card.Title>{props.state}</Card.Title>
         <Card.Text>{props.name}</Card.Text>
         <Card.Text>{props.description}</Card.Text>
-        <Button className="button">Go somewhere</Button>
+        <img className="cardPic" src={props.dbURL} alt="picturenotloaded" />
+        <Link to={`/${props.id}`}>
+          <Button variant="secondary">Go to article</Button>
+        </Link>
       </Card.Body>
     </Card>
   </div>

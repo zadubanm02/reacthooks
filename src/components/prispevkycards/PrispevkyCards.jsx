@@ -10,7 +10,9 @@ const PrispevkyCards = () => {
     db.collection("prispevky")
       .get()
       .then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => doc.data());
+        const data = querySnapshot.docs.map(doc => {
+          return [doc.id, doc.data()];
+        });
         console.log(data);
         setData({ prispevky: data });
       });
@@ -21,10 +23,12 @@ const PrispevkyCards = () => {
       {data.prispevky.map(item => {
         return (
           <CardPrispevok
-            key={item.name}
-            state={item.state}
-            name={item.name}
-            description={item.description}
+            key={item[1].docID}
+            state={item[1].state}
+            name={item[1].name}
+            description={item[1].description}
+            dbURL={item[1].dbURL}
+            id={item[0]}
           />
         );
       })}

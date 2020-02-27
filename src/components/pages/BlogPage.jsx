@@ -1,7 +1,6 @@
 import React from "react";
 import NavigationBar from "../NavigationBar";
 import TestComp2 from "../test/test2";
-import ProfilePage from "../test/testpage";
 
 const BlogPage = () => {
   return (

@@ -7,6 +7,10 @@
 .cardstyle {
   width: 250px;
   box-shadow: 10px 10px 5px rgb(189, 187, 187);
-  margin: 50px;
+  margin: 30px;
   border-radius: 15px;
+}
+
+.cardPic {
+  width: 220px;
 }
