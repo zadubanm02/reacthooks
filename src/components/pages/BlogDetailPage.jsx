@@ -4,7 +4,7 @@ import db from "../../firebase/firebase";
 import NavigationBar from "../NavigationBar";
 import { CardPrispevok } from "../card/CardPrispevok";
 
-const DetailPage = ({ match }) => {
+const BlogDetailPage = ({ match }) => {
   const [data, setData] = useState({ prispevok: {} });
   const [recommended, setRecommended] = useState({ recommendedData: [] });
 
@@ -66,4 +66,4 @@ const DetailPage = ({ match }) => {
   );
 };
 
-export default DetailPage;
+export default BlogDetailPage;

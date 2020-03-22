@@ -1,7 +1,6 @@
 import React from "react";
-import { Jumbotron, Row, Col } from "react-bootstrap";
+import { Jumbotron, Row } from "react-bootstrap";
 import "./jumbo-styles.css";
-import pic from "../../earthpic.png";
 import "./pic-styles.css";
 
 const Jumbo = () => {
@@ -9,13 +8,7 @@ const Jumbo = () => {
     <div>
       <Jumbotron className="jumbo">
         <Row>
-          <Col>
-            <h1>Hello, Slavka!</h1>
-            <p>This is a simple hero unit</p>
-          </Col>
-          <Col>
-            <img src={pic} alt="earth" className="pic" />
-          </Col>
+          <h1>Hello, Slavka!</h1>
         </Row>
       </Jumbotron>
     </div>

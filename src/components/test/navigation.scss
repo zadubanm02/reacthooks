@@ -1,0 +1,17 @@
+.nav-item {
+  color: #000;
+  border-top: transparent 3px solid;
+  border-bottom: transparent 3px solid;
+  transition: all ease 0.4s;
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  color: #eb6b56;
+  border-top: 3px #eb6b56 solid;
+  border-bottom: 3px #eb6b56 solid;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}

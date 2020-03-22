@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./test/navigation.scss";
+import "./homepagenav.scss";
 
 const NavigationBar = () => {
   return (
-    <nav className="navbar navbar-light navbar-expand-lg ">
+    <nav className="navbar navbar-light navbar-expand-lg navigationbar">
       <Link to="/" className="navbar-brand">
         Explr.
       </Link>

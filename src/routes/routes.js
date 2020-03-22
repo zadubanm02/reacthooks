@@ -5,13 +5,17 @@ import BlogPage from "../components/pages/BlogPage";
 import PrispevkyPage from "../components/pages/PrispevkyPage";
 import UzitocnePage from "../components/pages/UzitocnePage";
 import DetailPage from "../components/pages/DetailPage";
+import NewPage from "../components/pages/NewPage";
 
 export default (
   <Switch>
     <Route exact={true} path="/" component={HomePage} />
-    <Route path="/prispevky" component={PrispevkyPage} />
-    <Route path="/blog" component={BlogPage} />
+    <Route exact path="/prispevky" component={PrispevkyPage} />
+    <Route exact path="/blog" component={BlogPage} />
     <Route path="/uzitocne" component={UzitocnePage} />
-    <Route path="/:id" component={DetailPage} />
+    <Route path="/novy" component={NewPage} />
+    <Route exact path="/prispevky/:id" component={DetailPage} />
   </Switch>
 );
+
+//<Route exact path="/blog/:id" component={BlogDetail} />

@@ -1,13 +1,13 @@
 import React from "react";
 import NavigationBar from "../NavigationBar";
-import TestComp2 from "../test/test2";
+import List from "../list/List";
 
 const BlogPage = () => {
   return (
     <div>
       <NavigationBar />
       <div>BlogPage</div>
-      <TestComp2 />
+      <List />
     </div>
   );
 };

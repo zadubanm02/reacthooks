@@ -1,15 +1,15 @@
 import React from "react";
-import PrispevkyCards from "../prispevkycards/PrispevkyCards";
-import NavigationBar from "../NavigationBar";
 import Jumbo from "../jumbo/jumbo";
 import List from "../list/List";
+import HomePageCards from "../home-page-cards/homePageCards";
+import HomePageNav from "../homepage-navigation/HomePageNav";
 
 const HomePage = () => {
   return (
     <div>
-      <NavigationBar />
+      <HomePageNav />
       <Jumbo />
-      <PrispevkyCards />
+      <HomePageCards />
       <List />
     </div>
   );
