@@ -10,18 +10,26 @@ const List = () => {
     db.collection("blog")
       .get()
       .then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => doc.data());
+        const data = querySnapshot.docs.map(doc => {
+          return [doc.id, doc.data()];
+        });
         console.log(data);
         setData({ blog: data });
       });
   }, []);
 
   return (
-    <div>
+    <div className="container list">
       <ListGroup>
         {data.blog.map(item => {
           return (
-            <ListItem key={item.name} header={item.header} name={item.name} />
+            <ListItem
+              key={item[0]}
+              title={item[1].title}
+              description={item[1].description}
+              picture={item[1].picture}
+              id={item[0]}
+            />
           );
         })}
       </ListGroup>

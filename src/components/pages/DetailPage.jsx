@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DetailItem from "../detailitem/DetailItem";
 import db from "../../firebase/firebase";
-import NavigationBar from "../NavigationBar";
+import NavigationBar from "../navigationbar/NavigationBar";
 import { CardPrispevok } from "../card/CardPrispevok";
 
 const DetailPage = ({ match }) => {
@@ -21,12 +21,15 @@ const DetailPage = ({ match }) => {
         const data = doc.data();
         setData({ prispevok: data });
         db.collection("prispevky")
-
+          .limit(3)
           .get()
           .then(querySnapshot => {
             const recommended = querySnapshot.docs
               .filter(doc => {
-                return doc.data().GPSLat === data.GPSLat;
+                return (
+                  doc.data().GPSLat === data.GPSLat &&
+                  doc.data().GPSLong === data.GPSLong
+                );
               })
               .map(doc => {
                 return [doc.id, doc.data()];
@@ -43,12 +46,13 @@ const DetailPage = ({ match }) => {
       <DetailItem
         name={data.prispevok.name}
         state={data.prispevok.state}
-        content={data.content}
+        content={data.prispevok.content}
         dbURL={data.prispevok.dbURL}
       />
 
-      <div>
-        Recommended
+      <div className="container">
+        <br />
+        <h4>Mohlo by ta zaujimat</h4>
         {recommended.recommendedData.map(item => {
           return (
             <CardPrispevok

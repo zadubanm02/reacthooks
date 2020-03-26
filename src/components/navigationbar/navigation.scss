@@ -1,4 +1,4 @@
-.nav-item {
+.navigationbar-link {
   color: #000;
   border-top: transparent 3px solid;
   border-bottom: transparent 3px solid;
@@ -6,12 +6,13 @@
   font-weight: bold;
 }
 
-.nav-item:hover {
-  color: #eb6b56;
-  border-top: 3px #eb6b56 solid;
-  border-bottom: 3px #eb6b56 solid;
+.navigationbar-link:hover {
+  color: #71f6a0;
+  border-top: 3px #71f6a0 solid;
+  border-bottom: 3px #71f6a0 solid;
 }
 
 .navbar-brand {
   font-weight: bold;
+  border-bottom: 3px solid #71f6a0;
 }

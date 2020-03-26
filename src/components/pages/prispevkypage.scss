@@ -1,0 +1,29 @@
+.plus {
+  border-radius: 50px;
+  background-image: linear-gradient(to top right, #71f6a0, #3ed4f0);
+  border: none;
+  color: #0b293d;
+  transition: 0.5s ease;
+}
+
+.plus:hover {
+  transform: scale(1.2);
+  color: #0b293d;
+}
+
+.plus-text {
+  text-align: left;
+  justify-content: bottom;
+}
+
+.prispevky.title {
+  float: left;
+}
+
+.add-prispevok {
+  float: right;
+}
+
+.title {
+  border-bottom: 3px solid #71f6a0;
+}

@@ -2,35 +2,51 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./homepagenav.scss";
 
-const NavigationBar = () => {
+const HomePageNav = () => {
   return (
-    <nav className="navbar navbar-light navbar-expand-lg navigationbar">
-      <Link to="/" className="navbar-brand">
+    <nav
+      className="navbar navbar-light navbar-expand-sm homenavigation"
+      id="homepagenav"
+    >
+      <Link to="/" className="navbar-brand navigation-brand" id="homepagebrand">
         Explr.
       </Link>
       <button
-        className="navbar-toggler"
+        class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        data-target="#navbar"
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <Link to="/" className="nav-item nav-link">
+      <div className="collapse navbar-collapse" id="navbar">
+        <div className="navbar-nav mr-auto">
+          <Link
+            to="/"
+            className="nav-item nav-link homepagenav"
+            id="homepagenavlink"
+          >
             Home
           </Link>
-          <Link to="/prispevky" className="nav-item nav-link">
+          <Link
+            to="/prispevky"
+            className="nav-item nav-link homepagenav"
+            id="homepagenavlink"
+          >
             Prispevky
           </Link>
-          <Link to="/blog" className="nav-item nav-link">
+          <Link
+            to="/blog"
+            className="nav-item nav-link homepagenav"
+            id="homepagenavlink"
+          >
             Blog
           </Link>
-          <Link to="uzitocne" className="nav-item nav-link">
+          <Link
+            to="uzitocne"
+            className="nav-item nav-link homepagenav"
+            id="homepagenavlink"
+          >
             Uzitocne
           </Link>
         </div>
@@ -39,4 +55,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default HomePageNav;

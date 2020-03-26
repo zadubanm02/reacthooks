@@ -2,6 +2,7 @@ import React from "react";
 import firebase from "firebase";
 import piexif from "piexifjs";
 import { parseLat, parseLong, ConvertDMS } from "../test/exifData";
+import "./addnew.scss";
 
 export default class AddNew extends React.Component {
   state = {
@@ -16,7 +17,8 @@ export default class AddNew extends React.Component {
     url: "",
     GPSLat: "",
     GPSLong: "",
-    content: ""
+    content: "",
+    isUploaded: false
   };
 
   handleChange = e => {
@@ -98,66 +100,91 @@ export default class AddNew extends React.Component {
               content: content,
               dbURL: dbURL,
               GPSLat: GPSLat,
-              GPSLong: GPSLong
+              GPSLong: GPSLong,
+              timestamp: new Date().toUTCString()
             });
+            this.setState({ isUploaded: true });
           });
       }
     );
   };
 
   render() {
+    const { isUploaded } = this.state;
+    if (isUploaded) {
+      return (
+        <div className="upload-success">
+          <h3>
+            Prispevok bol uspesne pridany{" "}
+            <i class="fas fa-check check-icon"></i>
+          </h3>
+        </div>
+      );
+    }
     return (
-      <div className="container">
-        <form onSubmit={this.handleDataPost}>
+      <div className="form-container">
+        <form onSubmit={this.handleDataPost} className="add-new-form">
           <div className="form-group">
-            <label for="name">Podpis sa</label>
             <input
               type="text"
               name="name"
               onChange={this.handleChange}
-              className="form-control"
+              className="form-control addnew-text-input"
+              placeholder="Podpis sa"
             />
             <small class="form-text text-muted">
               Zadaj svoje meno, prezyvku alebo co len chces aby ta ludia
               poznali.
             </small>
-            <label for="state">Kde si bol?</label>
             <input
               type="text"
               name="state"
               onChange={this.handleChange}
-              className="form-control"
+              className="form-control addnew-text-input"
+              placeholder="Kde si bol ?"
             />
             <small class="form-text text-muted">
               Zadaj stat, mesto alebo miesto, ktore si navstivil.
             </small>
-            <label for="description">Popis tvojho zazitku ?</label>
             <input
               type="text"
               name="description"
               onChange={this.handleChange}
-              className="form-control"
+              className="form-control addnew-text-input"
+              placeholder="Sem daj kratky popis"
             />
             <small class="form-text text-muted">
               Zadaj kratky popis miesta a zazitku, ktory si zazil.
             </small>
-            <label for="content">Rozvin svoje myslienky a porad ostatnym</label>
             <textarea
               type="text"
               name="content"
               onChange={this.handleChange}
-              className="form-control"
+              className="form-control textarea-input"
               rows="4"
+              placeholder="Rozvin svoje myslienky a odporuc ostatnym..."
             ></textarea>
-            <small class="form-text text-muted">
+            <small class="form-text text-muted ">
               Tvojej slovnej zasobe sa medze nekladu. Mysli na ostatnych a porad
               im alebo odporuc.
             </small>
             <br />
-            <input type="file" id="picupload" onChange={this.handlePicUpload} />
+
+            <input
+              type="file"
+              id="picupload"
+              onChange={this.handlePicUpload}
+              accept="image/*"
+              className="file-input"
+            />
+            <label htmlFor="picupload" className="add-photo">
+              <i class="fas fa-folder-plus file-icon"></i>
+              Pridaj fotku
+            </label>
             <br />
-            <button type="submit">Submit data</button>
-            <img src={this.state.dbURL} alt="" />
+            <button type="submit" className=" submit-button">
+              Pridat prispevok
+            </button>
           </div>
         </form>
       </div>

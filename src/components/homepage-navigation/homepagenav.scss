@@ -1,23 +1,21 @@
-.navigationbar {
-  background: transparent;
-  margin-bottom: 50px;
-  position: fixed;
+#homepagenav {
+  background-color: transparent;
+  color: #fff;
 }
 
-.nav-item {
-  color: #000;
+#homepagenavlink {
+  color: #fff;
   border-top: transparent 3px solid;
   border-bottom: transparent 3px solid;
   transition: all ease 0.4s;
   font-weight: bold;
 }
 
-.nav-item:hover {
-  color: #eb6b56;
-  border-top: 3px #eb6b56 solid;
-  border-bottom: 3px #eb6b56 solid;
+#homepagenavlink:hover {
+  border-top: 3px #71f6a0 solid;
+  border-bottom: 3px #71f6a0 solid;
 }
 
-.navbar-brand {
-  font-weight: bold;
+#homepagebrand {
+  color: #fff;
 }

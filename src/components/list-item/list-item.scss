@@ -1,0 +1,22 @@
+.list-link:hover {
+  transform: scale(1.05);
+}
+
+.list-link {
+  transition: 0.5s ease;
+  background: #f4f6f9;
+  padding-top: 15px;
+  margin-top: 25px;
+}
+
+.gradient {
+  color: linear-gradient(to top right, #71f6a0, #3ed4f0);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 3px;
+  border-top: 2px solid #71f6a0;
+  padding: 0;
+}

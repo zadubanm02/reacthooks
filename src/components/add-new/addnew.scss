@@ -1,0 +1,105 @@
+.submit-button {
+  border: none;
+  border-radius: 13px;
+  background-image: linear-gradient(to top right, #71f6a0, #3ed4f0);
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  transition: 0.5s ease;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.upload-success {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.check-icon {
+  margin-left: 15px;
+}
+
+.submit-button:hover {
+  transform: scale(1.2);
+}
+
+.form-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-new-form .textarea-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-top: 3px solid grey;
+  border-bottom: 3px solid grey;
+  margin-top: 8px;
+  transition: 0.5s ease;
+}
+
+.add-new-form .textarea-input:focus {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-top: 3px solid grey;
+  border-bottom: 3px solid grey;
+  margin-top: 8px;
+  transform: scale(1.1);
+}
+
+.add-new-form .form-group .addnew-text-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 3px solid grey;
+  transition: 0.5s ease;
+}
+
+input:focus {
+  border: none;
+  border-bottom: 3px solid #71f6a0;
+  outline: 0;
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+.aadd-new-form .file-input {
+  display: none;
+}
+
+.add-photo {
+  position: absolute;
+  margin: auto;
+  height: 30px;
+  width: 34%;
+  background-image: linear-gradient(to top right, #71f6a0, #3ed4f0);
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+}
+
+.add-photo:hover {
+  transform: scale(1.1);
+}
+
+.file-icon {
+  margin-right: 10px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 3px;
+  border-top: 3px solid #71f6a0;
+  padding: 0;
+}

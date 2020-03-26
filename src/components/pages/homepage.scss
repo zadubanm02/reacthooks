@@ -1,0 +1,40 @@
+.link-button {
+  border-radius: 50px;
+  background-image: linear-gradient(to top right, #71f6a0, #3ed4f0);
+  border: none;
+  color: #0b293d;
+  transition: 0.5s ease;
+}
+
+.link-button:hover {
+  transform: scale(1.2);
+}
+
+header {
+  color: #fff;
+  background: url(365design.png);
+  background-size: cover;
+  height: 900px;
+}
+
+header h1 {
+  border-bottom: 1px solid #71f6a0;
+  font-weight: bold;
+}
+
+header p {
+  font-weight: bold;
+}
+
+.header-content {
+  z-index: 1;
+  position: relative;
+}
+
+.homepage-h2 {
+  border-bottom: 1px solid #71f6a0;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}

@@ -1,12 +1,15 @@
 import React from "react";
-import NavigationBar from "../NavigationBar";
+import NavigationBar from "../navigationbar/NavigationBar";
 import List from "../list/List";
 
 const BlogPage = () => {
   return (
     <div>
       <NavigationBar />
-      <div>BlogPage</div>
+      <div className="container">
+        <h3 className="title">Blog</h3>
+      </div>
+
       <List />
     </div>
   );

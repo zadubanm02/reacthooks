@@ -1,24 +1,48 @@
-.btn {
-  color: #fff;
-  border: none;
-  background: #eb6b56;
-}
-
-.btn:hover {
-  background: #c45442;
-}
-
 .card {
-  box-shadow: 4px 4px 3px rgb(221, 220, 220);
+  display: grid;
+  grid-template-columns: 290px;
+  grid-template-rows: 150px 250px;
+  grid-template-areas: "image" "text";
+  font-family: roboto;
+  background: transparent;
   margin: 30px;
-  border-radius: 15px;
-  width: 410px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s ease;
+  border-bottom: 3px solid #71f6a0;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 3px;
+  border-top: 2px solid #71f6a0;
+  padding: 0;
 }
 
-.cardPic {
-  width: 220px;
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 15px rgb(221, 220, 220);
 }
 
-.card-img-top {
-  width: 320px;
+.card-img {
+  grid-area: "image";
+}
+
+.card-textarea {
+  grid-area: text;
+  color: rgb(109, 108, 108);
+  padding: 18px;
+}
+
+.card-textarea h4 {
+  font-weight: bold;
+}
+
+.card-textarea h6 {
+  font-weight: bold;
+}
+
+.card-textarea small {
+  color: #0a293c;
 }

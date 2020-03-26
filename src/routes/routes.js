@@ -6,6 +6,7 @@ import PrispevkyPage from "../components/pages/PrispevkyPage";
 import UzitocnePage from "../components/pages/UzitocnePage";
 import DetailPage from "../components/pages/DetailPage";
 import NewPage from "../components/pages/NewPage";
+import BlogDetailPage from "../components/pages/BlogDetailPage";
 
 export default (
   <Switch>
@@ -15,7 +16,6 @@ export default (
     <Route path="/uzitocne" component={UzitocnePage} />
     <Route path="/novy" component={NewPage} />
     <Route exact path="/prispevky/:id" component={DetailPage} />
+    <Route exact path="/blog/:id" component={BlogDetailPage} />
   </Switch>
 );
-
-//<Route exact path="/blog/:id" component={BlogDetail} />
