@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import List from "../list/List";
 import HomePageCards from "../home-page-cards/homePageCards";
 import HomePageNav from "../homepage-navigation/HomePageNav";
 import "./homepage.scss";
 import { Link } from "react-router-dom";
 import { Footer } from "../footer/Footer";
+import { UserContext } from "../../context/UserContext";
 
 const HomePage = () => {
+  const { user, setUser } = useContext(UserContext);
   return (
     <div className="homepage">
       <header>

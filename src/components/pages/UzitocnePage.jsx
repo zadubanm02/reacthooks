@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavigationBar from "../navigationbar/NavigationBar";
+import LoginNavigationBar from "../login-navigationbar/LoginNavigationBar";
+import { UserContext } from "../../context/UserContext";
 
 const UzitocnePage = () => {
-  return (
+  const { user, setUser } = useContext(UserContext);
+
+  return user == null ? (
     <div>
       <NavigationBar />
-      <div>UzitocnePage</div>
+      <div className="container">
+        <h2 className="text-center">UzitocnePage</h2>
+      </div>
+    </div>
+  ) : (
+    <div>
+      <LoginNavigationBar />
+      <div className="container">
+        <h2 className="text-center">UzitocnePage</h2>
+      </div>
     </div>
   );
 };

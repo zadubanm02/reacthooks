@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DetailItem from "../detailitem/DetailItem";
 import db from "../../firebase/firebase";
 import NavigationBar from "../navigationbar/NavigationBar";
 import { CardPrispevok } from "../card/CardPrispevok";
+import { UserContext } from "../../context/UserContext";
+import LoginNavigationBar from "../login-navigationbar/LoginNavigationBar";
 
 const DetailPage = ({ match }) => {
+  const { user, setUser } = useContext(UserContext);
   const [data, setData] = useState({ prispevok: {} });
   const [recommended, setRecommended] = useState({ recommendedData: [] });
 
@@ -40,7 +43,7 @@ const DetailPage = ({ match }) => {
       });
   }, [match.params.id]);
 
-  return (
+  return user == null ? (
     <div>
       <NavigationBar />
       <DetailItem
@@ -49,6 +52,35 @@ const DetailPage = ({ match }) => {
         content={data.prispevok.content}
         dbURL={data.prispevok.dbURL}
       />
+      <div></div>
+
+      <div className="container">
+        <br />
+        <h4>Mohlo by ta zaujimat</h4>
+        {recommended.recommendedData.map(item => {
+          return (
+            <CardPrispevok
+              key={item[0]}
+              state={item[1].state}
+              name={item[1].name}
+              description={item[1].description}
+              dbURL={item[1].dbURL}
+              id={item[0]}
+            />
+          );
+        })}
+      </div>
+    </div>
+  ) : (
+    <div>
+      <LoginNavigationBar />
+      <DetailItem
+        name={data.prispevok.name}
+        state={data.prispevok.state}
+        content={data.prispevok.content}
+        dbURL={data.prispevok.dbURL}
+      />
+      <div></div>
 
       <div className="container">
         <br />

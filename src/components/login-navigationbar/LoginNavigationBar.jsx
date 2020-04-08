@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./navigation.scss";
+import "./login-navigationbar.scss";
+import LogOutButton from "../logout-button/LogOutButton";
 
-const NavigationBar = () => {
+const LoginNavigationBar = () => {
   return (
     <nav className="navbar navbar-light navbar-expand-sm ">
       <Link to="/" className="navbar-brand navigation-brand">
@@ -30,23 +31,21 @@ const NavigationBar = () => {
           <Link to="/blog" className="nav-item nav-link navigationbar-link">
             Blog
           </Link>
-          <Link to="/uzitocne" className="nav-item nav-link navigationbar-link">
+          <Link to="uzitocne" className="nav-item nav-link navigationbar-link">
             Uzitocne
           </Link>
         </div>
         <div>
-          <Link to="/login" className="nav-item nav-link navigationbar-link">
-            Login
+          <Link to="/profile" className="nav-item nav-link navigationbar-link">
+            Profile
           </Link>
         </div>
         <div>
-          <Link to="/register" className="nav-item nav-link navigationbar-link">
-            Register
-          </Link>
+          <LogOutButton />
         </div>
       </div>
     </nav>
   );
 };
 
-export default NavigationBar;
+export default LoginNavigationBar;
