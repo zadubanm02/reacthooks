@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import NavigationBar from "../navigationbar/NavigationBar";
-import TestComp2 from "../add-new/addNew";
 import "./newpage.scss";
 import LoginNavigationBar from "../login-navigationbar/LoginNavigationBar";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
+import { AddPrispevok } from "../addprispevok/AddPrispevok";
 
 const NewPage = () => {
   const { user, setUser } = useContext(UserContext);
@@ -36,7 +36,7 @@ const NewPage = () => {
       <LoginNavigationBar />
       <div className="container">
         <h3 className="addnew-title">Pridaj novy prispevok</h3>
-        <TestComp2 />
+        <AddPrispevok />
       </div>
     </React.Fragment>
   );

@@ -11,7 +11,12 @@ export const ListItem = props => {
     >
       <div className="row">
         <div className="col-lg-3 col-xs-10">
-          <img src={props.picture} alt="blogpic" style={{ width: "250px" }} />
+          <img
+            src={props.picture}
+            alt="blogpic"
+            style={{ width: "250px" }}
+            className="list-image"
+          />
         </div>
         <div className="col-lg-9 col-xs-10">
           <h3>{props.title}</h3>

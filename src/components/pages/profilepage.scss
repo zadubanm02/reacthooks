@@ -1,0 +1,19 @@
+.profile-page-img {
+  height: 280px;
+}
+
+.profilepage-title {
+  border-bottom: 3px solid #fbd34d;
+}
+
+.profile-list-item {
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s ease;
+}
+
+.profile-list-item:hover {
+  text-decoration: none;
+  color: #000;
+  transform: scale(1.05);
+}

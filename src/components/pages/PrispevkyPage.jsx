@@ -12,15 +12,18 @@ const PrispevkyPage = () => {
     <React.Fragment>
       <NavigationBar />
       <div className="container">
-        <h3 className="title">Prispevky</h3>
         <div className="row">
-          <div className="col-6"></div>
-          <div className="col-6 ">
-            <div className="row add-prispevok">
-              <Link to="/novy" className="btn btn-primary plus">
-                Pridaj novy prispevok <i class="fas fa-plus"></i>
-              </Link>
-            </div>
+          <div className="col-lg-3 col-12"></div>
+          <div className="col-lg-6 col-12">
+            {" "}
+            <h3 className="title text-center py-4 m-4 font-weight-bold">
+              Prispevky
+            </h3>
+          </div>
+          <div className="col-lg-3 col-12 my-5 px-3">
+            <Link to="/novy" className="btn btn-primary plus text-center my-6">
+              Pridaj novy prispevok <i class="fas fa-plus"></i>
+            </Link>
           </div>
         </div>
       </div>
@@ -30,15 +33,16 @@ const PrispevkyPage = () => {
     <React.Fragment>
       <LoginNavigationBar />
       <div className="container">
-        <h3 className="title">Prispevky</h3>
         <div className="row">
-          <div className="col-6"></div>
-          <div className="col-6 ">
-            <div className="row add-prispevok">
-              <Link to="/novy" className="btn btn-primary plus">
-                Pridaj novy prispevok <i class="fas fa-plus"></i>
-              </Link>
-            </div>
+          <div className="col-lg-3"></div>
+          <div className="col-lg-6 col-12">
+            {" "}
+            <h3 className="title text-center py-4 my-4">Prispevky</h3>
+          </div>
+          <div className="col-lg-3 col-12">
+            <Link to="/novy" className="btn btn-primary plus">
+              Pridaj novy prispevok <i class="fas fa-plus"></i>
+            </Link>
           </div>
         </div>
       </div>

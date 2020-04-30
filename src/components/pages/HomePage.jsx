@@ -13,16 +13,16 @@ const HomePage = () => {
     <div className="homepage">
       <header>
         <HomePageNav />
-        <div className="container">
+        <div className="container ">
           <div className="header-content">
             <div className="row">
               <div className="col-lg-6 col-xs-12 ">
                 <div style={{ marginTop: "230px" }}>
                   <h1>Explr.</h1>
-                  <p>
+                  <h5>
                     Zabudni na prikraslene fotky od cestoviek a podobnych
                     sraciek. Chekni nase prispevky a vyber si sam.
-                  </p>
+                  </h5>
                   <Link
                     to={"/prispevky"}
                     className="btn btn-primary link-button"
@@ -37,12 +37,34 @@ const HomePage = () => {
         </div>
       </header>
       <br />
+      <section className="bg-light pt-6 homepage-cards">
+        <div className="container ">
+          <div className="row">
+            <div className="col-lg-3"></div>
+            <div className="col-lg-6">
+              <h2 className="homepage-h2">Chekni nove prispevky</h2>
+              <p>
+                Prispevky od pouzivatelov, ktori navstivili miesta po svete a
+                chcu vam poradit{" "}
+              </p>
+            </div>
+            <div className="col-lg-3"></div>
+          </div>
+        </div>
+        <HomePageCards />
+      </section>
       <div className="container">
-        <h2 className="homepage-h2">Chekni nove prispevky</h2>
-      </div>
-      <HomePageCards />
-      <div className="container">
-        <h2 className="homepage-h2">Nieco z nasich odporucani</h2>
+        <div className="row">
+          <div className="col-lg-3"></div>
+          <div className="col-lg-6">
+            <h2 className="homepage-h2">Nieco z nasich odporucani</h2>
+            <p>
+              Prispevky od pouzivatelov, ktori navstivili miesta po svete a chcu
+              vam poradit{" "}
+            </p>
+          </div>
+          <div className="col-lg-3"></div>
+        </div>
       </div>
       <List />
       <Footer />

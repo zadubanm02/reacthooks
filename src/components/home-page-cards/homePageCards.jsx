@@ -19,20 +19,18 @@ const HomePageCards = () => {
 
   return (
     <div>
-      <div className="container">
-        <div className="row">
+      <div className="container homepage-cards">
+        <div className="row wow slideInLeft" data-wow-duration="1s">
           {data.prispevky.map(item => {
             return (
-              <div className="col-lg-4 col-xs-10">
-                <CardPrispevok
-                  key={item[0]}
-                  state={item[1].state}
-                  name={item[1].name}
-                  description={item[1].description}
-                  dbURL={item[1].dbURL}
-                  id={item[0]}
-                />
-              </div>
+              <CardPrispevok
+                key={item[0]}
+                state={item[1].state}
+                name={item[1].name}
+                description={item[1].description}
+                dbURL={item[1].dbURL}
+                id={item[0]}
+              />
             );
           })}
         </div>

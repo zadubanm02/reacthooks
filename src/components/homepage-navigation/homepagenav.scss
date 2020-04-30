@@ -1,10 +1,18 @@
-#homepagenav {
+/*#homepagenav {
   background-color: transparent;
   color: #fff;
-}
+}*/
 
+/*
 #homepagenavlink {
   color: #fff;
+  border-top: transparent 3px solid;
+  border-bottom: transparent 3px solid;
+  transition: all ease 0.4s;
+  font-weight: bold;
+}*/
+
+#homepagenavlink {
   border-top: transparent 3px solid;
   border-bottom: transparent 3px solid;
   transition: all ease 0.4s;
@@ -12,10 +20,15 @@
 }
 
 #homepagenavlink:hover {
-  border-top: 3px #71f6a0 solid;
-  border-bottom: 3px #71f6a0 solid;
+  border-top: 3px #fbd34d solid;
+  border-bottom: 3px #fbd34d solid;
 }
 
-#homepagebrand {
+/*#homepagenavlink:hover {
+  border-top: 3px #71f6a0 solid;
+  border-bottom: 3px #71f6a0 solid;
+}*/
+
+/*#homepagebrand {
   color: #fff;
-}
+}*/

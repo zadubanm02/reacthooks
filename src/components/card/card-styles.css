@@ -1,4 +1,4 @@
-.card {
+/*.card {
   display: grid;
   grid-template-columns: 290px;
   grid-template-rows: 150px 250px;
@@ -11,21 +11,21 @@
   text-decoration: none;
   transition: 0.5s ease;
   border-bottom: 3px solid #71f6a0;
-}
+}*/
 hr {
   display: block;
   height: 1px;
   border: 3px;
-  border-top: 2px solid #71f6a0;
+  border-top: 2px solid #fbd34d;
   padding: 0;
 }
 
-.card:hover {
+/*.card:hover {
   transform: scale(1.1);
   box-shadow: 5px 5px 15px rgb(221, 220, 220);
-}
+}*/
 
-.card-img {
+/*.card-img {
   grid-area: "image";
 }
 
@@ -45,4 +45,27 @@ hr {
 
 .card-textarea small {
   color: #0a293c;
+}*/
+
+.blog-box {
+  border-radius: 10px;
+  color: #000;
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.blog-box:hover {
+  transform: scale(1.1);
+}
+
+.card-link {
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s ease;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: #000;
+  transform: scale(1.2);
 }

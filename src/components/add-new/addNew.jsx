@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import firebase from "firebase";
 import piexif from "piexifjs";
 import { parseLat, parseLong, ConvertDMS } from "../test/exifData";

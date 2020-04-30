@@ -10,6 +10,8 @@ const DetailPage = ({ match }) => {
   const { user, setUser } = useContext(UserContext);
   const [data, setData] = useState({ prispevok: {} });
   const [recommended, setRecommended] = useState({ recommendedData: [] });
+  const [GPSLa, setGPSLa] = useState("");
+  const [GPSLo, setGPSLo] = useState("");
 
   useEffect(() => {
     db.collection("prispevky")
@@ -22,21 +24,21 @@ const DetailPage = ({ match }) => {
           console.log("No such document!");
         }
         const data = doc.data();
+        const GPSLa = doc.data().GPSLat;
+        const GPSLo = doc.data().GPSLong;
+        setGPSLa(GPSLa);
+        setGPSLo(GPSLo);
+        console.log(GPSLa, GPSLo);
         setData({ prispevok: data });
         db.collection("prispevky")
-          .limit(3)
+          .limit(10)
+          .where("GPSLat", "==", GPSLa)
           .get()
           .then(querySnapshot => {
-            const recommended = querySnapshot.docs
-              .filter(doc => {
-                return (
-                  doc.data().GPSLat === data.GPSLat &&
-                  doc.data().GPSLong === data.GPSLong
-                );
-              })
-              .map(doc => {
-                return [doc.id, doc.data()];
-              });
+            const recommended = querySnapshot.docs.map(doc => {
+              return [doc.id, doc.data()];
+            });
+            console.log(data.GPSLat, data.GPSLong);
             console.log("Recommended data: ", recommended);
             setRecommended({ recommendedData: recommended });
           });
@@ -57,18 +59,22 @@ const DetailPage = ({ match }) => {
       <div className="container">
         <br />
         <h4>Mohlo by ta zaujimat</h4>
-        {recommended.recommendedData.map(item => {
-          return (
-            <CardPrispevok
-              key={item[0]}
-              state={item[1].state}
-              name={item[1].name}
-              description={item[1].description}
-              dbURL={item[1].dbURL}
-              id={item[0]}
-            />
-          );
-        })}
+        {recommended.recommendedData
+          .filter(item => {
+            return item[1].GPSLong == GPSLo;
+          })
+          .map(item => {
+            return (
+              <CardPrispevok
+                key={item[0]}
+                state={item[1].state}
+                name={item[1].name}
+                description={item[1].description}
+                dbURL={item[1].dbURL}
+                id={item[0]}
+              />
+            );
+          })}
       </div>
     </div>
   ) : (
@@ -85,21 +91,35 @@ const DetailPage = ({ match }) => {
       <div className="container">
         <br />
         <h4>Mohlo by ta zaujimat</h4>
-        {recommended.recommendedData.map(item => {
-          return (
-            <CardPrispevok
-              key={item[0]}
-              state={item[1].state}
-              name={item[1].name}
-              description={item[1].description}
-              dbURL={item[1].dbURL}
-              id={item[0]}
-            />
-          );
-        })}
+        {recommended.recommendedData
+          .filter(item => {
+            return item[1].GPSLat == GPSLa;
+          })
+          .map(item => {
+            return (
+              <CardPrispevok
+                key={item[0]}
+                state={item[1].state}
+                name={item[1].name}
+                description={item[1].description}
+                dbURL={item[1].dbURL}
+                id={item[0]}
+              />
+            );
+          })}
       </div>
     </div>
   );
 };
 
 export default DetailPage;
+
+/*.filter(doc => {
+  return (
+    doc.data().GPSLat === data.GPSLat &&
+    doc.data().GPSLong === data.GPSLong
+  );
+})
+
+doc[1].GPSLong == GPSLo;
+*/

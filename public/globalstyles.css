@@ -2,6 +2,12 @@ hr {
   display: block;
   height: 1px;
   border: 3px;
-  border-top: 2px solid #71f6a0;
+  border-top: 2px solid #fbd34d;
   padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,400i,700,700i,800,800i&subset=latin-ext");
+
+body {
+  font-family: "Nunito", sans-serif;
 }

@@ -1,28 +1,28 @@
 .link-button {
   border-radius: 50px;
-  background-image: linear-gradient(to top right, #71f6a0, #3ed4f0);
+  background: #fbd34d;
   border: none;
-  color: #0b293d;
+  color: #000;
   transition: 0.5s ease;
 }
 
 .link-button:hover {
+  background: #fbd34d;
   transform: scale(1.2);
 }
 
 header {
-  color: #fff;
-  background: url(365design.png);
+  background: url(SwimGlasses.png);
   background-size: cover;
-  height: 900px;
+  height: 800px;
 }
 
 header h1 {
-  border-bottom: 1px solid #71f6a0;
+  border-bottom: 2px solid #fbd34d;
   font-weight: bold;
 }
 
-header p {
+header h5 {
   font-weight: bold;
 }
 
@@ -32,9 +32,11 @@ header p {
 }
 
 .homepage-h2 {
-  border-bottom: 1px solid #71f6a0;
   font-weight: bold;
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 30px;
+}
+
+.homepage-cards {
+  padding: 30px 0px;
 }
