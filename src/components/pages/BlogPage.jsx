@@ -10,7 +10,14 @@ const BlogPage = () => {
     <div>
       <NavigationBar />
       <div className="container">
-        <h3 className="title">Blog</h3>
+        <div className="row">
+          <div className="col-lg-3"></div>
+          <div className="col-lg-6">
+            {" "}
+            <h3 className="title text-center m-4 p-3">Blog</h3>
+          </div>
+          <div className="col-lg-3"></div>
+        </div>
       </div>
 
       <List />
@@ -19,7 +26,14 @@ const BlogPage = () => {
     <div>
       <LoginNavigationBar />
       <div className="container">
-        <h3 className="title">Blog</h3>
+        <div className="row">
+          <div className="col-lg-3"></div>
+          <div className="col-lg-6">
+            {" "}
+            <h3 className="title text-center">Blog</h3>
+          </div>
+          <div className="col-lg-3"></div>
+        </div>
       </div>
 
       <List />

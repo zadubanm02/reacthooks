@@ -3,13 +3,11 @@ const lat = {
   2: [
     [48, 1],
     [9, 1],
-    [265212, 10000]
-  ]
+    [265212, 10000],
+  ],
 };
 
-console.log(lat[2][0][0]);
-
-export const parseLat = exif => {
+export const parseLat = (exif) => {
   const newLat = [];
   try {
     newLat.push(exif[2][0][0]);
@@ -21,7 +19,7 @@ export const parseLat = exif => {
   }
 };
 
-export const parseLong = exif => {
+export const parseLong = (exif) => {
   const newLong = [];
   try {
     newLong.push(exif[4][0][0]);
@@ -34,7 +32,6 @@ export const parseLong = exif => {
 };
 
 const parsedLat = parseLat(lat);
-console.log(parsedLat);
 
 export const ConvertDMS = (days, minutes, seconds, direction) => {
   try {
@@ -52,8 +49,3 @@ export const ConvertDMS = (days, minutes, seconds, direction) => {
 const result = ConvertDMS(parsedLat[0], parsedLat[1], parsedLat[2], lat[1]);
 
 var b = result.toString().substring(0, result.toString().indexOf(".") + 6);
-console.log(b);
-
-console.log(result);
-
-console.log(result.toFixed(5));

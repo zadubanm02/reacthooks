@@ -23,7 +23,7 @@ export function AppRouter() {
         <Route exact={true} path="/" component={HomePage} />
         <Route exact path="/prispevky" component={PrispevkyPage} />
         <Route exact path="/blog" component={BlogPage} />
-        <Route path="/uzitocne" component={UzitocnePage} />
+        <Route exact path="/uzitocne" component={UzitocnePage} />
         <Route path="/novy" component={NewPage} />
         <Route exact path="/prispevky/:id" component={DetailPage} />
         <Route exact path="/blog/:id" component={BlogDetailPage} />

@@ -1,7 +1,7 @@
 import React from "react";
 import "./detail-item.scss";
 
-const DetailItem = props => {
+const DetailItem = (props) => {
   return (
     <div className="container">
       <h2>{props.state}</h2>
@@ -10,7 +10,7 @@ const DetailItem = props => {
       <img
         src={props.dbURL}
         alt="picturenotloaded"
-        className="col-lg-12 col-xs-12"
+        className="col-lg-12 col-xs-12 detail-pic"
       />
     </div>
   );

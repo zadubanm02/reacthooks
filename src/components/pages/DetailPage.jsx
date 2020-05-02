@@ -17,7 +17,7 @@ const DetailPage = ({ match }) => {
     db.collection("prispevky")
       .doc(match.params.id)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (doc.exists) {
           console.log("Document data:", doc.data());
         } else {
@@ -31,11 +31,11 @@ const DetailPage = ({ match }) => {
         console.log(GPSLa, GPSLo);
         setData({ prispevok: data });
         db.collection("prispevky")
-          .limit(10)
+          .limit(3)
           .where("GPSLat", "==", GPSLa)
           .get()
-          .then(querySnapshot => {
-            const recommended = querySnapshot.docs.map(doc => {
+          .then((querySnapshot) => {
+            const recommended = querySnapshot.docs.map((doc) => {
               return [doc.id, doc.data()];
             });
             console.log(data.GPSLat, data.GPSLong);
@@ -58,23 +58,27 @@ const DetailPage = ({ match }) => {
 
       <div className="container">
         <br />
-        <h4>Mohlo by ta zaujimat</h4>
-        {recommended.recommendedData
-          .filter(item => {
-            return item[1].GPSLong == GPSLo;
-          })
-          .map(item => {
-            return (
-              <CardPrispevok
-                key={item[0]}
-                state={item[1].state}
-                name={item[1].name}
-                description={item[1].description}
-                dbURL={item[1].dbURL}
-                id={item[0]}
-              />
-            );
-          })}
+        <h4 className="text-center m-4 font-weight-bold">
+          Mohlo by ta zaujimat
+        </h4>
+        <div className="row">
+          {recommended.recommendedData
+            .filter((item) => {
+              return item[1].GPSLong == GPSLo;
+            })
+            .map((item) => {
+              return (
+                <CardPrispevok
+                  key={item[0]}
+                  state={item[1].state}
+                  name={item[1].name}
+                  description={item[1].description}
+                  dbURL={item[1].dbURL}
+                  id={item[0]}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   ) : (
@@ -92,10 +96,10 @@ const DetailPage = ({ match }) => {
         <br />
         <h4>Mohlo by ta zaujimat</h4>
         {recommended.recommendedData
-          .filter(item => {
+          .filter((item) => {
             return item[1].GPSLat == GPSLa;
           })
-          .map(item => {
+          .map((item) => {
             return (
               <CardPrispevok
                 key={item[0]}

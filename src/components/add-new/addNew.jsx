@@ -18,20 +18,19 @@ export default class AddNew extends React.Component {
     GPSLat: "",
     GPSLong: "",
     content: "",
-    isUploaded: false
+    isUploaded: false,
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  handlePicUpload = e => {
+  handlePicUpload = (e) => {
     let file = e.target.files[0];
-    console.log(e.target.files[0]);
     const reader = new FileReader();
-    reader.onloadend = e => {
+    reader.onloadend = (e) => {
       const exif = piexif.load(e.target.result);
       const parsedGPSLat = parseLat(exif.GPS);
       const parsedGPSLong = parseLong(exif.GPS);
@@ -55,7 +54,7 @@ export default class AddNew extends React.Component {
     this.setState(() => ({ image: file }));
   };
 
-  handleDataPost = e => {
+  handleDataPost = (e) => {
     const { image } = this.state;
     e.preventDefault();
 
@@ -65,13 +64,13 @@ export default class AddNew extends React.Component {
       .put(image);
     uploadTask.on(
       "state_changed",
-      snapshot => {
+      (snapshot) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
         this.setState({ progress });
       },
-      error => {
+      (error) => {
         console.log(error);
       },
       () => {
@@ -80,9 +79,8 @@ export default class AddNew extends React.Component {
           .ref("images")
           .child(image.name)
           .getDownloadURL()
-          .then(url => {
+          .then((url) => {
             this.setState({ dbURL: url });
-            console.log(this.state.dbURL);
             const {
               dbURL,
               name,
@@ -90,7 +88,7 @@ export default class AddNew extends React.Component {
               description,
               content,
               GPSLat,
-              GPSLong
+              GPSLong,
             } = this.state;
             const db = firebase.firestore();
             db.collection("prispevky").add({
@@ -101,7 +99,7 @@ export default class AddNew extends React.Component {
               dbURL: dbURL,
               GPSLat: GPSLat,
               GPSLong: GPSLong,
-              timestamp: new Date().toUTCString()
+              timestamp: new Date().toUTCString(),
             });
             this.setState({ isUploaded: true });
           });

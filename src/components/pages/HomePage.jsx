@@ -42,7 +42,9 @@ const HomePage = () => {
           <div className="row">
             <div className="col-lg-3"></div>
             <div className="col-lg-6">
-              <h2 className="homepage-h2">Chekni nove prispevky</h2>
+              <h2 className="homepage-h2 font-weight-bold">
+                Chekni nove prispevky
+              </h2>
               <p>
                 Prispevky od pouzivatelov, ktori navstivili miesta po svete a
                 chcu vam poradit{" "}
@@ -57,7 +59,9 @@ const HomePage = () => {
         <div className="row">
           <div className="col-lg-3"></div>
           <div className="col-lg-6">
-            <h2 className="homepage-h2">Nieco z nasich odporucani</h2>
+            <h2 className="homepage-h2 font-weight-bold">
+              Nieco z nasich odporucani
+            </h2>
             <p>
               Prispevky od pouzivatelov, ktori navstivili miesta po svete a chcu
               vam poradit{" "}

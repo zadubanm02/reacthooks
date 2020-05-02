@@ -3,6 +3,7 @@ import firebase from "firebase";
 import piexif from "piexifjs";
 import { parseLat, parseLong, ConvertDMS } from "../test/exifData";
 import { UserContext } from "../../context/UserContext";
+import "./add-prispevok.scss";
 
 export const AddPrispevok = () => {
   const { user, setUser } = useContext(UserContext);
@@ -17,12 +18,12 @@ export const AddPrispevok = () => {
   const [files, setFiles] = useState([]);
   const [URL, setURL] = useState("");
 
-  const handlePicUpload = e => {
+  const handlePicUpload = (e) => {
     e.preventDefault();
     setFiles(e.target.files[0]);
     let file = e.target.files[0];
     const reader = new FileReader();
-    reader.onloadend = e => {
+    reader.onloadend = (e) => {
       const exif = piexif.load(e.target.result);
       const parsedGPSLat = parseLat(exif.GPS);
       const parsedGPSLong = parseLong(exif.GPS);
@@ -48,7 +49,7 @@ export const AddPrispevok = () => {
     setImage(file);
   };
 
-  const handleDataPost = e => {
+  const handleDataPost = (e) => {
     e.preventDefault();
 
     const uploadTask = firebase
@@ -57,12 +58,12 @@ export const AddPrispevok = () => {
       .put(image);
     uploadTask.on(
       "state_changed",
-      snapshot => {
+      (snapshot) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
       },
-      error => {
+      (error) => {
         console.log(error);
       },
       () => {
@@ -71,13 +72,10 @@ export const AddPrispevok = () => {
           .ref("images")
           .child(image.name)
           .getDownloadURL()
-          .then(url => {
-            alert(url);
+          .then((url) => {
             const imageURL = url;
             setdbURL(url);
             setURL(url);
-            console.log(URL);
-            console.log(dbURL);
             const db = firebase.firestore();
             db.collection("prispevky").add({
               name: user.displayName,
@@ -87,7 +85,7 @@ export const AddPrispevok = () => {
               dbURL: imageURL,
               GPSLat: GPSLat,
               GPSLong: GPSLong,
-              timestamp: new Date().toUTCString()
+              timestamp: new Date().toUTCString(),
             });
             setIsUploaded(true);
           });
@@ -106,61 +104,72 @@ export const AddPrispevok = () => {
   }
   return (
     <div className="form-container">
-      <form onSubmit={handleDataPost} className="add-new-form">
-        <div className="form-group">
-          <input
-            type="text"
-            name="state"
-            onChange={e => {
-              setState(e.target.value);
-            }}
-            className="form-control addnew-text-input"
-            placeholder="Kde si bol ?"
-          />
-          <small class="form-text text-muted">
-            Zadaj stat, mesto alebo miesto, ktore si navstivil.
-          </small>
-          <input
-            type="text"
-            name="description"
-            onChange={e => setDescription(e.target.value)}
-            className="form-control addnew-text-input"
-            placeholder="Sem daj kratky popis"
-          />
-          <small class="form-text text-muted">
-            Zadaj kratky popis miesta a zazitku, ktory si zazil.
-          </small>
-          <textarea
-            type="text"
-            name="content"
-            onChange={e => setContent(e.target.value)}
-            className="form-control textarea-input"
-            rows="4"
-            placeholder="Rozvin svoje myslienky a odporuc ostatnym..."
-          ></textarea>
-          <small class="form-text text-muted ">
-            Tvojej slovnej zasobe sa medze nekladu. Mysli na ostatnych a porad
-            im alebo odporuc.
-          </small>
-          <br />
-
-          <input
-            type="file"
-            id="picupload"
-            onChange={handlePicUpload}
-            accept="image/*"
-            className="file-input"
-          />
-          <label htmlFor="picupload" className="add-photo">
-            <i class="fas fa-folder-plus file-icon"></i>
-            Pridaj fotku
-          </label>
-          <br />
-          <button type="submit" className=" submit-button">
-            Pridat prispevok
-          </button>
+      <div className="row">
+        <div className="col-lg-2"></div>
+        <div className="col-lg-8">
+          <form onSubmit={handleDataPost} className="add-new-form">
+            <div className="form-group">
+              <input
+                type="text"
+                name="state"
+                onChange={(e) => {
+                  setState(e.target.value);
+                }}
+                className="form-control "
+                placeholder="Kde si bol ?"
+              />
+              <small class="form-text text-muted">
+                Zadaj stat, mesto alebo miesto, ktore si navstivil.
+              </small>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="description"
+                onChange={(e) => setDescription(e.target.value)}
+                className="form-control "
+                placeholder="Sem daj kratky popis"
+              />
+              <small class="form-text text-muted">
+                Zadaj kratky popis miesta a zazitku, ktory si zazil.
+              </small>
+            </div>
+            <div className="form-group">
+              <textarea
+                type="text"
+                name="content"
+                onChange={(e) => setContent(e.target.value)}
+                className="form-control "
+                rows="4"
+                placeholder="Rozvin svoje myslienky a odporuc ostatnym..."
+              ></textarea>
+              <small class="form-text text-muted ">
+                Tvojej slovnej zasobe sa medze nekladu. Mysli na ostatnych a
+                porad im alebo odporuc.
+              </small>
+            </div>
+            <br />
+            <div className="form-group">
+              <input
+                type="file"
+                id="picupload"
+                onChange={handlePicUpload}
+                accept="image/*"
+                className="file-input"
+              />
+            </div>
+            <br />
+            <button
+              type="submit"
+              className="btn btn-primary submit-button"
+              style={{ background: "#FBD34D" }}
+            >
+              Pridat prispevok
+            </button>
+          </form>
         </div>
-      </form>
+        <div className="col-lg-2"></div>
+      </div>
     </div>
   );
 };

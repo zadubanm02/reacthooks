@@ -12,7 +12,7 @@ const NewPage = () => {
     <div>
       <NavigationBar />
       <div className="container">
-        <h3 className="text-center my-5">
+        <h3 className="text-center my-5 font-weight-bold">
           Ked chces pridat novy prispevok musis byt prihlaseny !
         </h3>
         <div className="row">
@@ -35,7 +35,10 @@ const NewPage = () => {
     <React.Fragment>
       <LoginNavigationBar />
       <div className="container">
-        <h3 className="addnew-title">Pridaj novy prispevok</h3>
+        <h3 className="font-weight-bold text-center m-4">
+          {" "}
+          Pridaj novy prispevok
+        </h3>
         <AddPrispevok />
       </div>
     </React.Fragment>
