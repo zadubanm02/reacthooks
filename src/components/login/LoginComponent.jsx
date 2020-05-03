@@ -24,7 +24,7 @@ const LoginComponent = (props) => {
 
   return (
     <div className="m-3 ">
-      <h2 className="text-center font-weight-bold m-3">Prihlas sa</h2>
+      <h2 className="text-center font-weight-bold m-3">Prihlás sa</h2>
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-8">

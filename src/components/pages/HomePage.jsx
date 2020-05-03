@@ -20,8 +20,8 @@ const HomePage = () => {
                 <div style={{ marginTop: "230px" }}>
                   <h1>Explr.</h1>
                   <h5>
-                    Zabudni na prikraslene fotky od cestoviek a podobnych
-                    sraciek. Chekni nase prispevky a vyber si sam.
+                    Zabudni na prikrášlené fotky od cestoviek a podobných
+                    inštitúcií. Chekni naše príspevky a vyber si sám.
                   </h5>
                   <Link
                     to={"/prispevky"}
@@ -45,7 +45,7 @@ const HomePage = () => {
               <h2 className="homepage-h2 font-weight-bold">
                 Chekni nove prispevky
               </h2>
-              <p>
+              <p className="text-center">
                 Prispevky od pouzivatelov, ktori navstivili miesta po svete a
                 chcu vam poradit{" "}
               </p>
@@ -62,10 +62,7 @@ const HomePage = () => {
             <h2 className="homepage-h2 font-weight-bold">
               Nieco z nasich odporucani
             </h2>
-            <p>
-              Prispevky od pouzivatelov, ktori navstivili miesta po svete a chcu
-              vam poradit{" "}
-            </p>
+            <p className="text-center"> Overene odporucania nasho timu. </p>
           </div>
           <div className="col-lg-3"></div>
         </div>

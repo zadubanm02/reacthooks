@@ -17,12 +17,12 @@ const PrispevkyPage = () => {
           <div className="col-lg-6 col-12">
             {" "}
             <h3 className="title text-center py-4 m-4 font-weight-bold">
-              Prispevky
+              Príspevky
             </h3>
           </div>
           <div className="col-lg-3 col-12 my-5 px-3">
             <Link to="/novy" className="btn btn-primary plus text-center my-6">
-              Pridaj novy prispevok <i class="fas fa-plus"></i>
+              Pridaj nový príspevok <i class="fas fa-plus"></i>
             </Link>
           </div>
         </div>
@@ -37,11 +37,11 @@ const PrispevkyPage = () => {
           <div className="col-lg-3"></div>
           <div className="col-lg-6 col-12">
             {" "}
-            <h3 className="title text-center py-4 my-4">Prispevky</h3>
+            <h3 className="title text-center py-4 my-4">Príspevky</h3>
           </div>
           <div className="col-lg-3 col-12">
             <Link to="/novy" className="btn btn-primary plus">
-              Pridaj novy prispevok <i class="fas fa-plus"></i>
+              Pridaj nový príspevok <i class="fas fa-plus"></i>
             </Link>
           </div>
         </div>

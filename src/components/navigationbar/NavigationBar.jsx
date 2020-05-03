@@ -25,13 +25,13 @@ const NavigationBar = () => {
             to="/prispevky"
             className="nav-item nav-link navigationbar-link"
           >
-            Prispevky
+            Príspevky
           </Link>
           <Link to="/blog" className="nav-item nav-link navigationbar-link">
             Blog
           </Link>
           <Link to="/uzitocne" className="nav-item nav-link navigationbar-link">
-            Uzitocne
+            Užítočné
           </Link>
         </div>
         <div>

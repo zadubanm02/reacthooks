@@ -54,30 +54,30 @@ const DetailPage = ({ match }) => {
         content={data.prispevok.content}
         dbURL={data.prispevok.dbURL}
       />
-      <div></div>
-
-      <div className="container">
-        <br />
-        <h4 className="text-center m-4 font-weight-bold">
-          Mohlo by ta zaujimat
-        </h4>
-        <div className="row">
-          {recommended.recommendedData
-            .filter((item) => {
-              return item[1].GPSLong == GPSLo;
-            })
-            .map((item) => {
-              return (
-                <CardPrispevok
-                  key={item[0]}
-                  state={item[1].state}
-                  name={item[1].name}
-                  description={item[1].description}
-                  dbURL={item[1].dbURL}
-                  id={item[0]}
-                />
-              );
-            })}
+      <div className="bg-light">
+        <div className="container">
+          <br />
+          <h3 className="text-center m-4 font-weight-bold">
+            Mohlo by ťa zaujímať
+          </h3>
+          <div className="row p-5">
+            {recommended.recommendedData
+              .filter((item) => {
+                return item[1].GPSLong == GPSLo;
+              })
+              .map((item) => {
+                return (
+                  <CardPrispevok
+                    key={item[0]}
+                    state={item[1].state}
+                    name={item[1].name}
+                    description={item[1].description}
+                    dbURL={item[1].dbURL}
+                    id={item[0]}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </div>

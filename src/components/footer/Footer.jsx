@@ -37,6 +37,9 @@ export const Footer = () => {
               Inspiration <i className="fas fa-arrow-right"></i> Ľuboslava
               Nováková
             </p>
+            <p>
+              Help <i className="fas fa-arrow-right"></i> Pavol Sojka{" "}
+            </p>
           </div>
           <div className="col-lg-4 col-xs-12">
             Check out my social media

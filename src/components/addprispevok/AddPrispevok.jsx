@@ -4,8 +4,9 @@ import piexif from "piexifjs";
 import { parseLat, parseLong, ConvertDMS } from "../test/exifData";
 import { UserContext } from "../../context/UserContext";
 import "./add-prispevok.scss";
+import { withRouter } from "react-router-dom";
 
-export const AddPrispevok = () => {
+const AddPrispevok = (props) => {
   const { user, setUser } = useContext(UserContext);
   const [GPSLat, setGPSLat] = useState("");
   const [GPSLong, setGPSLong] = useState("");
@@ -17,6 +18,7 @@ export const AddPrispevok = () => {
   const [isUploaded, setIsUploaded] = useState(false);
   const [files, setFiles] = useState([]);
   const [URL, setURL] = useState("");
+  const [isUploading, setisUploading] = useState(false);
 
   const handlePicUpload = (e) => {
     e.preventDefault();
@@ -51,6 +53,7 @@ export const AddPrispevok = () => {
 
   const handleDataPost = (e) => {
     e.preventDefault();
+    setisUploading(true);
 
     const uploadTask = firebase
       .storage()
@@ -91,14 +94,26 @@ export const AddPrispevok = () => {
           });
       }
     );
+    setTimeout(() => {
+      props.history.replace("/prispevky");
+    }, 3000);
   };
 
   if (isUploaded) {
     return (
-      <div className="upload-success">
+      <div className="upload-success text-center">
         <h3>
-          Prispevok bol uspesne pridany <i class="fas fa-check check-icon"></i>
+          Príspevok bol úspešne pridaný <i class="fas fa-check check-icon"></i>
         </h3>
+      </div>
+    );
+  }
+  if (isUploading) {
+    return (
+      <div class="text-center">
+        <div class="spinner-border text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </div>
     );
   }
@@ -119,7 +134,7 @@ export const AddPrispevok = () => {
                 placeholder="Kde si bol ?"
               />
               <small class="form-text text-muted">
-                Zadaj stat, mesto alebo miesto, ktore si navstivil.
+                Zadaj štát, mesto alebo miesto, ktoré si navštívil.
               </small>
             </div>
             <div className="form-group">
@@ -128,10 +143,10 @@ export const AddPrispevok = () => {
                 name="description"
                 onChange={(e) => setDescription(e.target.value)}
                 className="form-control "
-                placeholder="Sem daj kratky popis"
+                placeholder="Sem daj krátky popis"
               />
               <small class="form-text text-muted">
-                Zadaj kratky popis miesta a zazitku, ktory si zazil.
+                Zadaj krátky popis miesta a zážitku, ktorý si zažil.
               </small>
             </div>
             <div className="form-group">
@@ -141,11 +156,11 @@ export const AddPrispevok = () => {
                 onChange={(e) => setContent(e.target.value)}
                 className="form-control "
                 rows="4"
-                placeholder="Rozvin svoje myslienky a odporuc ostatnym..."
+                placeholder="Rozviň svoje myšlienky a odporuč ostatným..."
               ></textarea>
               <small class="form-text text-muted ">
-                Tvojej slovnej zasobe sa medze nekladu. Mysli na ostatnych a
-                porad im alebo odporuc.
+                Tvojej slovnej zásobe sa medze nekladú. Mysli na ostatných a
+                poraď im alebo odporuč.
               </small>
             </div>
             <br />
@@ -164,7 +179,7 @@ export const AddPrispevok = () => {
               className="btn btn-primary submit-button"
               style={{ background: "#FBD34D" }}
             >
-              Pridat prispevok
+              Pridať príspevok
             </button>
           </form>
         </div>
@@ -173,3 +188,5 @@ export const AddPrispevok = () => {
     </div>
   );
 };
+
+export default withRouter(AddPrispevok);
