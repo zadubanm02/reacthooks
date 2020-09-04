@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { Footer } from "../footer/Footer";
 import { UserContext } from "../../context/UserContext";
 
+
+
 const HomePage = () => {
   const { user, setUser } = useContext(UserContext);
   return (
@@ -18,7 +20,7 @@ const HomePage = () => {
             <div className="row">
               <div className="col-lg-6 col-xs-12 ">
                 <div style={{ marginTop: "230px" }}>
-                  <h1>Explr.</h1>
+                  <h1 >Explr.</h1>
                   <h5>
                     Zabudni na prikrášlené fotky od cestoviek a podobných
                     inštitúcií. Chekni naše príspevky a vyber si sám.
@@ -42,9 +44,10 @@ const HomePage = () => {
           <div className="row">
             <div className="col-lg-3"></div>
             <div className="col-lg-6">
-              <h2 className="homepage-h2 font-weight-bold">
+              <h2 className="homepage-h2 font-weight-bold" id="editorjs" >
                 Chekni nove prispevky
               </h2>
+
               <p className="text-center">
                 Prispevky od pouzivatelov, ktori navstivili miesta po svete a
                 chcu vam poradit{" "}

@@ -11,6 +11,7 @@ import { UserContext } from "../context/UserContext.js";
 import ProfilePage from "../components/pages/ProfilePage";
 import LoginPage from "../components/pages/LoginPage";
 import RegisterPage from "../components/pages/RegisterPage";
+import '../devtools/devtoolsSetup'
 
 export function AppRouter() {
   const [user, setUser] = useState(null);
