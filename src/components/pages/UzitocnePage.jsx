@@ -8,6 +8,13 @@ import Test1 from '../test/Test1';
 import Test2 from '../testcomponents/Test1';
 import DevTools from "../../devtools/devtools";
 import styles from '../../devtools/devtoolsStyles.css'
+import Live from "../../react-live/Live";
+import { transform } from '@babel/core'
+import RegisterPage from './RegisterPage';
+import jsx from 'acorn-jsx'
+import * as acorn from 'acorn'
+
+
 
 
 const UzitocnePage = () => {
@@ -30,6 +37,8 @@ const UzitocnePage = () => {
   const saveEdited = () => {
     setShowInput(false)
   }
+
+
 
   let target = null
   function handleMousemove(e) {
@@ -69,6 +78,8 @@ const UzitocnePage = () => {
       if (tab) { tab.parentNode.removeChild(tab) }
       if (butt) { butt.parentNode.removeChild(butt); }
     }
+
+
   }
 
   function showSelect(e) {
@@ -158,6 +169,22 @@ const UzitocnePage = () => {
     if (butt) { butt.parentNode.removeChild(butt); }
 
   }
+  function jsxCode(e) {
+    target = e.target;
+
+  }
+
+  const acornFun = (e) => {
+    console.log("event target type", e)
+    console.log("Target dir", e.target.outerHTML)
+    const stringCode = e.target.outerHTML
+    console.log("SringCode", stringCode, "Type", typeof (stringCode), "Target", e.target)
+    const parsedtarget = acorn.Parser.extend(jsx()).parse(stringCode)
+    console.log("Parsed Target", parsedtarget.body[0].expression)
+    // const parsedCode = acorn.Parser.extend(jsx()).parse(code)
+    // console.log("Parsed Code with Acorn", parsedCode)
+  }
+
   function onMouseOverHandler(e) {
     target = e.target
     if (target.nodeName == "BUTTON") {
@@ -167,93 +194,146 @@ const UzitocnePage = () => {
     } else {
       highlight({ type: 'element', detail: target })
     }
-    console.log("Target", target)
     //if (target.nodeName == "TH") {
     //  handleMousemove(e)
     //}
     handleMousemove(e)
+    let code = <th style={{ position: "relative" }}>First</th>;
+    let another = <h2 className="text-center">UzitocnePage</h2>;
+
+    acornFun(e)
+  }
+
+  const code = `<div className="container" onMouseOver={(e) => { onMouseOverHandler(e) }}   >
+  <div>
+    <table className="table" >
+      <thead >
+        <tr>
+          <th style={{ position: "relative" }}>Icon</th>
+
+
+          <th style={{ position: "relative" }}>
+            First
+          </th>
+          <th style={{ position: "relative" }}>Last</th>
+          <th style={{ position: "relative" }}>Handle</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td ><i class="fas fa-plus"></i></td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td >@mdo</td>
+        </tr>
+        <tr>
+          <td ><i class="fas fa-plus"></i></td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td >@fat</td>
+        </tr>
+        <tr>
+          <td ><i class="fas fa-plus"></i></td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td >@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`
+
+  function logElement() {
+    console.log("Element", { element })
+  }
+
+  var element;
+  const scope = {
+    onMouseOverHandler
   }
 
 
-
-
   return user == null ? (
-
     <div>
-      <Test1 />
-      <Test2 />
-      <div className="container" onMouseOver={(e) => { onMouseOverHandler(e) }}   >
-        <h2 className="text-center">UzitocnePage</h2>
-        <div>
-          <table className="table" >
-            <thead >
-              <tr>
-                <th style={{ position: "relative" }}>Icon</th>
+      <div>
+        <Live code={code} scope={scope} />
+        <div className="container" onMouseOver={(e) => { onMouseOverHandler(e); element = document.getRootNode(); logElement(); }}   >
+          <h2 className="text-center">Page</h2>
+          <div>
+            <table className="table" >
+              <thead >
+                <tr>
+                  <th style={{ position: "relative" }}>Icon</th>
 
 
-                <th style={{ position: "relative" }}>
-                  First
+                  <th style={{ position: "relative" }}>
+                    First
                 </th>
-                <th style={{ position: "relative" }}>Last</th>
-                <th style={{ position: "relative" }}>Handle</th>
+                  <th style={{ position: "relative" }}>Last</th>
+                  <th style={{ position: "relative" }}>Handle</th>
 
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td ><i class="fas fa-plus"></i></td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td >@mdo</td>
-              </tr>
-              <tr>
-                <td ><i class="fas fa-plus"></i></td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td >@fat</td>
-              </tr>
-              <tr>
-                <td ><i class="fas fa-plus"></i></td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td >@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ><i class="fas fa-plus"></i></td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td >@mdo</td>
+                </tr>
+                <tr>
+                  <td ><i class="fas fa-plus"></i></td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td >@fat</td>
+                </tr>
+                <tr>
+                  <td ><i class="fas fa-plus"></i></td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td >@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-      <div className={styles.TabBar}>
-        <div
-          className={tabID === 'components' ? styles.TabActive : styles.Tab}
-          onClick={() => setTabID('components')}
-        >
-          <span
-            className={styles.ReactIcon}
-            role="img"
-            aria-label="React Components tab button"
+        <Test1 />
+        <Test2 />
+        {/* <div className={styles.TabBar}>
+          <div
+            className={tabID === 'components' ? styles.TabActive : styles.Tab}
+            onClick={() => setTabID('components')}
           >
-            ⚛️
+            <span
+              className={styles.ReactIcon}
+              role="img"
+              aria-label="React Components tab button"
+            >
+              ⚛️
               </span>
               Components
             </div>
-        <div
-          className={tabID === 'profiler' ? styles.TabActive : styles.Tab}
-          onClick={() => setTabID('profiler')}
-        >
-          <span
-            className={styles.ReactIcon}
-            role="img"
-            aria-label="React Profiler tab button"
+          <div
+            className={tabID === 'profiler' ? styles.TabActive : styles.Tab}
+            onClick={() => setTabID('profiler')}
           >
-            ⚛️
+            <span
+              className={styles.ReactIcon}
+              role="img"
+              aria-label="React Profiler tab button"
+            >
+              ⚛️
               </span>
               Profiler
             </div>
-      </div>
-      <div className={styles.DevTools}>
-        <DevTools window={window} />
-      </div>
-    </div >
+        </div>
+        <div className={styles.DevTools}>
+          <DevTools window={window} />
+        </div> */}
+      </div >
+    </div>
   ) : (
       <div>
         <div className="container">
